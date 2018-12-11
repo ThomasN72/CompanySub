@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-
+import { Button, Form } from "semantic-ui-react";
 class SignUp extends Component {
 
     state = {
         name : '', 
         email : '', 
         password : '',
-        company : '',
-        position : '', 
-        location : ''
+        loggedIn: 'false',
+        registered: 'false'
     }
 
     saveToState = e => {
@@ -20,34 +19,30 @@ class SignUp extends Component {
 
     render() {
         return <div>
-            <h1>Sign Up Bellow</h1>
-            <label htmlFor="email">
-              Email
-              <input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.saveToState} />
-            </label>
-            <label htmlFor="name">
-              name
-              <input type="name" name="name" placeholder="name" value={this.state.name} onChange={this.saveToState} />
-            </label>
-            <label htmlFor="password">
-              password
-              <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.saveToState} />
-            </label>
-            <label htmlFor="location">
-              Location
-              <input type="location" name="location" placeholder="location" value={this.state.location} onChange={this.saveToState} />
-            </label>
-            <label htmlFor="company">
-              company
-              <input type="company" name="company" placeholder="company" value={this.state.company} onChange={this.saveToState} />
-            </label>
-            <label htmlFor="position">
-              position
-              <input type="position" name="position" placeholder="position" value={this.state.position} onChange={this.saveToState} />
-            </label>
-            <button type="button" class="btn btn-primary btn-lg">
-              Large button
-            </button>
+
+          
+            <Form>
+            <Form.Field>
+              <label htmlFor="name">
+                Name
+                  <input  name="name" placeholder="name" value={this.state.name} onChange={this.saveToState} />
+              </label>
+            </Form.Field>
+              <Form.Field>
+                <label htmlFor="email">
+                  Email
+                  <input type="email" name="email" placeholder="email" value={this.state.email} onChange={this.saveToState} />
+                </label>
+              </Form.Field>
+              <Form.Field>
+                <label htmlFor="password">
+                  Password
+                  <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.saveToState} />
+                </label>
+              </Form.Field>
+            <Button secondary>Sign Up</Button>
+            </Form>
+
           </div>;
     }
 
