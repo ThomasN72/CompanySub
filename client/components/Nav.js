@@ -34,7 +34,7 @@ class Nav extends Component {
         <Link href="/sub-opportunites">
           <a>Find a Day to Sub</a>
         </Link>
-        {account}
+        {/* {account} */}
       </NavStyles>
     )
   }
