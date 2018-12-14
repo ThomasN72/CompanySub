@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Link from "next/link";
 import NavStyles from './styles/NavStyles';
-import { Button, Header, Image, Modal } from "semantic-ui-react";
+// import { Button, Header, Image, Modal } from "semantic-ui-react";
 
 class Nav extends Component {
 

@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "nodemon server/server.js",
     "build": "next build",
     "start": "next start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.4",
+    "express-router": "0.0.1",
     "next": "^7.0.2",
     "nprogress": "^0.2.0",
     "react": "^16.6.3",
