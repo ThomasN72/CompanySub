@@ -5,26 +5,9 @@ import NavStyles from './styles/NavStyles';
 
 class Nav extends Component {
 
-  state = {
-    loggedIn: true,
-    registered : false
-  };
 
 
   render() {
-
-    let account ;
-    if (this.state.loggedIn === true) {
-      account = <Link href="/register">
-        <a>Account</a>
-      </Link>;
-    } else {
-      if (this.state.registered === false){
-        account = <a onclick={this.signUpModal}>Sign Up</a>;
-      } else {
-        account = <a>Register</a>
-      }
-    }
 
     return (
       <NavStyles>
@@ -34,7 +17,9 @@ class Nav extends Component {
         <Link href="/sub-opportunites">
           <a>Find a Day to Sub</a>
         </Link>
-        {account}
+        <Link href="register">
+          <a>Sign Up/Login</a>
+        </Link>
       </NavStyles>
     )
   }
