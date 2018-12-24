@@ -11,6 +11,9 @@ class Users extends Component {
             .then(res => {
                 console.log("Data: ", res.data)
             })
+            .catch(err => {
+                throw err;
+            })
     }
 
     render() {

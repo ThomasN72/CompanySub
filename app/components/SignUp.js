@@ -7,14 +7,10 @@ class SignUp extends Component {
     state = {
         name : '', 
         email : '', 
-        password : '',
-        loggedIn: 'false',
-        registered: 'false'
+        password : ''
     }
 
     saveToState = e => {
-        console.log("BEFORE SET STATE...", this.state);
-        console.log(e.target.name, e.target.value);
         this.setState({ [e.target.name]: e.target.value });
         console.log("AFTER SET STATE...", this.state);        
     }

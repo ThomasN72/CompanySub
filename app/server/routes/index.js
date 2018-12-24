@@ -7,6 +7,7 @@ router.get("/users/get/:id", (req, res)=> {
     res.send({"users": ["christina", "tommy"]})
 })
 
+
 router.post("/users/create", (req, res)=> {
     // console.log('req', req);
     console.log("Creating user... ", req.body)
