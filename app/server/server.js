@@ -1,6 +1,6 @@
 const express = require("express");
 const next = require("next");
-
+const mysql = require("mysql");
 const routes = require("./routes")
 
 const port = process.env.PORT || 3000;
@@ -12,6 +12,8 @@ app.prepare().then(() => {
   const server = express();
   const routes = require("./routes/index")
 
+  server.use(express.urlencoded({extended: true}));
+  server.use(express.json());
   server.use("/api", routes)
 
   server.get("*", (req, res) => {

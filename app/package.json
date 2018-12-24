@@ -15,6 +15,7 @@
     "express": "^4.16.4",
     "express-router": "0.0.1",
     "isomorphic-unfetch": "^3.0.0",
+    "mysql": "^2.16.0",
     "next": "^7.0.2",
     "nprogress": "^0.2.0",
     "react": "^16.6.3",
