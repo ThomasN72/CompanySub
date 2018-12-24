@@ -1,0 +1,17 @@
+USE main_db;
+
+DROP TABLE IF EXISTS positiondata;
+
+CREATE TABLE positiondata(
+	Id INT NOT NULL AUTO_INCREMENT,
+    PositionTitile VARCHAR(100) NOT NULL,
+	DateInserted DATETIME DEFAULT CURRENT_TIMESTAMP,
+	DateUpdated DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+    User INT,
+    CompanyId INT,
+    UserId INT,
+    PRIMARY KEY (Id),
+    FOREIGN KEY (UserId) REFERENCES userdata(Id),
+    FOREIGN KEY (CompanyId) REFERENCES companydata(Id)
+
+)

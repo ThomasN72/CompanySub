@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form } from "semantic-ui-react";
-import axios from 'axios'
+import UserAPI from "./utils/usersApi";
+
 class SignUp extends Component {
 
     state = {
@@ -14,22 +15,17 @@ class SignUp extends Component {
         console.log("AFTER SET STATE...", this.state);        
     }
 
-    createUser = event => {
-      let user = this.state;
-      console.log("user..", user)
-      axios.post('/api/users/create', user)
-        .then(res => {
-          console.log("Response: ", res)
-        })
-        .catch(err => {
-          console.log("Error creating user ", err)
-        })
-    };
+    handleFormSubmit = event =>{
+      event.preventDefault();
+      UserAPI.createUser({
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password
+      })
+    }
 
     render() {
         return <div>
-
-          
             <Form>
             <Form.Field>
               <label htmlFor="name">
@@ -49,12 +45,10 @@ class SignUp extends Component {
                   <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.saveToState} />
                 </label>
               </Form.Field>
-            <Button secondary onClick={this.createUser}>Sign Up</Button>
+            <Button secondary onClick={this.handleFormSubmit}>Sign Up</Button>
             </Form>
-
           </div>;
     }
-
 }
 
 export default SignUp;

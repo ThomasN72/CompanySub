@@ -1,0 +1,17 @@
+USE main_db;
+
+DROP TABLE IF EXISTS companydata;
+
+CREATE TABLE companydata(
+	Id INT NOT NULL AUTO_INCREMENT,
+    CompanyName VARCHAR(100) NOT NULL,
+    CompanyCity VARCHAR(100),
+    CompanyState VARCHAR(25),
+    CompanyCountry VARCHAR(50),
+	DateInserted DATETIME DEFAULT CURRENT_TIMESTAMP,
+	DateUpdated DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+    UserId INT,
+    PRIMARY KEY (Id),
+    FOREIGN KEY (UserId) REFERENCES userdata(Id)
+
+)

@@ -1,6 +1,6 @@
 const express = require("express");
 const next = require("next");
-
+const mysql = require("mysql");
 const routes = require("./routes")
 
 const port = process.env.PORT || 3000;
