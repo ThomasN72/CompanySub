@@ -6,8 +6,10 @@ router.get("/users", (req, res)=> {
     res.send({"users": ["christina", "tommy"]})
 })
 
+
 router.post("/users/create", (req, res)=> {
     console.log("Creating user... ", req.body)
+    res.json({"user": req.body})
 })
 
 module.exports = router;

@@ -12,6 +12,9 @@ app.prepare().then(() => {
   const server = express();
   const routes = require("./routes/index")
 
+  server.use(express.urlencoded({ extended: true }));
+  server.use(express.json());
+
   server.use("/api", routes)
 
   server.get("*", (req, res) => {

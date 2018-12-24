@@ -1,21 +1,30 @@
 import React, { Component } from "react";
 import { Button, Form } from "semantic-ui-react";
+import axios from 'axios'
 class SignUp extends Component {
 
     state = {
         name : '', 
         email : '', 
-        password : '',
-        loggedIn: 'false',
-        registered: 'false'
+        password : ''
     }
 
     saveToState = e => {
-        console.log("BEFORE SET STATE...", this.state);
-        console.log(e.target.name, e.target.value);
         this.setState({ [e.target.name]: e.target.value });
         console.log("AFTER SET STATE...", this.state);        
     }
+
+    createUser = event => {
+      let user = this.state;
+      console.log("user..", user)
+      axios.post('/api/users/create', user)
+        .then(res => {
+          console.log("Response: ", res)
+        })
+        .catch(err => {
+          console.log("Error creating user ", err)
+        })
+    };
 
     render() {
         return <div>
@@ -40,7 +49,7 @@ class SignUp extends Component {
                   <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.saveToState} />
                 </label>
               </Form.Field>
-            <Button secondary>Sign Up</Button>
+            <Button secondary onClick={this.createUser}>Sign Up</Button>
             </Form>
 
           </div>;
