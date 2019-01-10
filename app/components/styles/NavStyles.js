@@ -2,9 +2,15 @@ import styled from 'styled-components';
 
 const NavStyles = styled.ul`
   margin: 0;
-  padding: 0;
+  padding: 2em;
   display: flex;
-  justify-self: end;
+  justify-content: space-between;
+  background-color: #011627;
+  div {
+    margin: 2px;
+    color: #F71735;
+  }
+  /* justify-self: end;
   font-size: 2rem;
   a,
   button {
@@ -52,13 +58,13 @@ const NavStyles = styled.ul`
         width: calc(100% - 60px);
       }
     }
-  }
-  @media (max-width: 1300px) {
+  } */
+  /* @media (max-width: 1300px) {
     border-top: 1px solid ${props => props.theme.lightgrey};
     width: 100%;
     justify-content: center;
     font-size: 1.5rem;
-  }
+  } */
 `;
 
 export default NavStyles;
