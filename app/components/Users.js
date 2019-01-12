@@ -1,19 +1,13 @@
 import React, { Component } from 'react'
-// import fetch from 'isomorphic-unfetch'
-import axios from 'axios'
-
+import API from './utils/usersApi';
 class Users extends Component {
 
     componentWillMount() {
         // console.log(users)
         console.log("component mounted")
-        axios.get('/api/users')
-            .then(res => {
-                console.log("Data: ", res.data)
-            })
-            .catch(err => {
-                throw err;
-            })
+        API.getUsers().then(res => {
+          console.log(`Got user data: ${res.data}`);
+        });
     }
 
     render() {

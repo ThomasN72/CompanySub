@@ -232,7 +232,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    max-width: ", ";\n    margin: 0 auto;\n    padding: 0;\n"]);
+  var data = _taggedTemplateLiteral(["\n    /* max-width: ", "; */\n    max-width: 100%;\n    margin: 0 ;\n    padding: 0;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;

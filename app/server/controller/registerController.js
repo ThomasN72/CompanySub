@@ -17,5 +17,12 @@ module.exports = {
             console.log("New User,,", dbUser.email);
             res.json(dbUser);
         })
+    },
+    getUsers: (req, res) => {
+        db.User.findAll({})
+            .then(function(dbUsers){
+                console.log("Got users");
+                res.json(dbUsers)
+            })
     }
 }

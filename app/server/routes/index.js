@@ -2,10 +2,7 @@ const express = require("express")
 const router = express.Router()
 const controller = require("../controller/registerController");
 
-// router.get("/users/get/:id", (req, res)=> {
-//     console.log("..........Gettinggggg.........")
-//     res.send({"users": ["christina", "tommy"]})
-// })
+// router.get("users", controller.getUsers);/
 
 router.post("/users/create", controller.createUser);
 // router.post("/users/create", (req, res)=> {

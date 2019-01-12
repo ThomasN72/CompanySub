@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form } from "semantic-ui-react";
 import UserAPI from "./utils/usersApi";
+import Router from "next/router";
 
 class SignUp extends Component {
 
@@ -26,7 +27,12 @@ class SignUp extends Component {
         email: this.state.email,
         phoneNumber: this.state.phoneNumber,
         password: this.state.password
-      });
+      })
+      .then(res => {
+        this.setState({firstName: "", lastName: "", email: "", phoneNumber: "", password: ""})
+        Router.push('/feed')
+      })
+      .catch(err => console.error(err))
     }
 
     render() {
