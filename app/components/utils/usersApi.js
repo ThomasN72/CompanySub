@@ -3,9 +3,7 @@ import axios from 'axios';
 export default {
     createUser: function (user) {
         console.log('user', user);
-        axios.post('/api/users/create', user).then(res => {
-            console.log(res);
-        });
+        return axios.post('/api/users/create', user)
     },
     updateUser: function(user) {
         axios.patch('/api/users/update', user).then(res => {
@@ -20,5 +18,8 @@ export default {
         }).then(res => {
             return res;
         })
+    },
+    getUsers: function() {
+        return axios.get('/api/users');
     }
 }

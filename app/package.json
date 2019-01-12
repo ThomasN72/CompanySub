@@ -12,15 +12,18 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-plugin-styled-components": "^1.10.0",
     "express": "^4.16.4",
     "express-router": "0.0.1",
     "isomorphic-unfetch": "^3.0.0",
     "mysql": "^2.16.0",
+    "mysql2": "^1.6.4",
     "next": "^7.0.2",
     "nprogress": "^0.2.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "semantic-ui-react": "^0.84.0",
+    "sequelize": "^4.42.0",
     "styled-components": "^4.1.2"
   }
 }

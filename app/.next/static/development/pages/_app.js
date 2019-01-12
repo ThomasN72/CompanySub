@@ -232,7 +232,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    max-width: ", ";\n    margin: 0 auto;\n    padding: 2rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    /* max-width: ", "; */\n    max-width: 100%;\n    margin: 0 ;\n    padding: 0;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -290,7 +290,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_1__["ThemeProvider"], {
         theme: theme
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Inner, null, this.props.children)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledPage, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Inner, null, this.props.children)));
     }
   }]);
 
@@ -312,7 +312,7 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  margin: 0;\n  padding: 0;\n  display: flex;\n  justify-self: end;\n  font-size: 2rem;\n  a,\n  button {\n    padding: 1rem 3rem;\n    display: flex;\n    align-items: center;\n    position: relative;\n    text-transform: uppercase;\n    font-weight: 900;\n    font-size: 1em;\n    background: none;\n    border: 0;\n    cursor: pointer;\n    @media (max-width: 700px) {\n      font-size: 10px;\n      padding: 0 10px;\n    }\n    &:before {\n      content: '';\n      width: 2px;\n      background: ", ";\n      height: 100%;\n      left: 0;\n      position: absolute;\n      transform: skew(-20deg);\n      top: 0;\n      bottom: 0;\n    }\n    &:after {\n      height: 2px;\n      background: red;\n      content: '';\n      width: 0;\n      position: absolute;\n      transform: translateX(-50%);\n      transition: width 0.4s;\n      transition-timing-function: cubic-bezier(1, -0.65, 0, 2.31);\n      left: 50%;\n      margin-top: 2rem;\n    }\n    &:hover,\n    &:focus {\n      outline: none;\n      &:after {\n        width: calc(100% - 60px);\n      }\n    }\n  }\n  @media (max-width: 1300px) {\n    border-top: 1px solid ", ";\n    width: 100%;\n    justify-content: center;\n    font-size: 1.5rem;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  margin: 0;\n  padding: 2em;\n  display: flex;\n  justify-content: space-between;\n  background-color: #011627;\n  div {\n    margin: 2px;\n    color: #F71735;\n  }\n  /* justify-self: end;\n  font-size: 2rem;\n  a,\n  button {\n    padding: 1rem 3rem;\n    display: flex;\n    align-items: center;\n    position: relative;\n    text-transform: uppercase;\n    font-weight: 900;\n    font-size: 1em;\n    background: none;\n    border: 0;\n    cursor: pointer;\n    @media (max-width: 700px) {\n      font-size: 10px;\n      padding: 0 10px;\n    }\n    &:before {\n      content: '';\n      width: 2px;\n      background: ", ";\n      height: 100%;\n      left: 0;\n      position: absolute;\n      transform: skew(-20deg);\n      top: 0;\n      bottom: 0;\n    }\n    &:after {\n      height: 2px;\n      background: red;\n      content: '';\n      width: 0;\n      position: absolute;\n      transform: translateX(-50%);\n      transition: width 0.4s;\n      transition-timing-function: cubic-bezier(1, -0.65, 0, 2.31);\n      left: 50%;\n      margin-top: 2rem;\n    }\n    &:hover,\n    &:focus {\n      outline: none;\n      &:after {\n        width: calc(100% - 60px);\n      }\n    }\n  } */\n  /* @media (max-width: 1300px) {\n    border-top: 1px solid ", ";\n    width: 100%;\n    justify-content: center;\n    font-size: 1.5rem;\n  } */\n"]);
 
   _templateObject = function _templateObject() {
     return data;
