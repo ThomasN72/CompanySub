@@ -10,14 +10,9 @@ export default {
             console.log(res); 
         });
     },
-    getUser: function(id) {
-        axios.get('/api/users/get', {
-            params: {
-                id: id
-            }
-        }).then(res => {
-            return res;
-        })
+    getUser: function(obj) {
+        console.log(`Password: ${obj.password} Email: ${obj.email}`)
+        return axios.get('/api/user',{ params: { user: obj }})
     },
     getUsers: function() {
         return axios.get('/api/users');

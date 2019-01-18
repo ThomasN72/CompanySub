@@ -16,6 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_NavStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/NavStyles */ "./components/styles/NavStyles.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/index.js");
+/* harmony import */ var _utils_usersApi__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/usersApi */ "./components/utils/usersApi.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26,13 +27,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -46,19 +50,66 @@ function (_Component) {
   _inherits(Nav, _Component);
 
   function Nav() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, Nav);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Nav).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Nav)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      email: '',
+      password: ''
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "saveToState", function (e) {
+      _this.setState(_defineProperty({}, e.target.name, e.target.value));
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleFormSubmit", function (event) {
+      console.log(_this.state);
+      event.preventDefault();
+      _utils_usersApi__WEBPACK_IMPORTED_MODULE_5__["default"].getUser({
+        email: _this.state.email,
+        password: _this.state.password
+      }).then(function (res) {
+        _this.setState({
+          email: "",
+          password: ""
+        });
+
+        console.log("Response: ", res); // Router.push('/feed')
+      }).catch(function (err) {
+        return console.error(err);
+      });
+    });
+
+    return _this;
   }
 
   _createClass(Nav, [{
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_NavStyles__WEBPACK_IMPORTED_MODULE_2__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "LOGO")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["Input"], {
-        placeholder: "Email"
+        type: "email",
+        name: "email",
+        value: this.state.email,
+        placeholder: "Email",
+        onChange: this.saveToState
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["Input"], {
-        placeholder: "Password"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["Button"], null, "Sign In")));
+        type: "password",
+        name: "password",
+        value: this.state.password,
+        placeholder: "Password",
+        onChange: this.saveToState
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+        onClick: this.handleFormSubmit
+      }, "Sign In")));
     }
   }]);
 
@@ -180,6 +231,12 @@ function (_Component) {
       isRegistered: false
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "componentDidMount", function () {
+      _utils_usersApi__WEBPACK_IMPORTED_MODULE_2__["default"].getUsers().then(function (res) {
+        console.log(res);
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "saveToState", function (e) {
       _this.setState(_defineProperty({}, e.target.name, e.target.value));
 
@@ -215,11 +272,6 @@ function (_Component) {
   _createClass(SignUp, [{
     key: "render",
     value: function render() {
-      // if (this.state.isRegistered) {
-      //   let form = <h1>Sign In</h1>;
-      // } else {
-      //   let form =  <h1>Register</h1>
-      // }
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Form"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Form"].Field, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "firstName"
       }, "First Name", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -413,13 +465,12 @@ __webpack_require__.r(__webpack_exports__);
       console.log(res);
     });
   },
-  getUser: function getUser(id) {
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/users/get', {
+  getUser: function getUser(obj) {
+    console.log("Password: ".concat(obj.password, " Email: ").concat(obj.email));
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/user', {
       params: {
-        id: id
+        user: obj
       }
-    }).then(function (res) {
-      return res;
     });
   },
   getUsers: function getUsers() {

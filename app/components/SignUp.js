@@ -14,6 +14,13 @@ class SignUp extends Component {
         isRegistered: false
     }
 
+    componentDidMount = () => {
+      UserAPI.getUsers()
+        .then(res => {
+          console.log(res);
+        })
+    }
+
     saveToState = e => {
         this.setState({ [e.target.name]: e.target.value });
         console.log("AFTER SET STATE...", this.state);        
@@ -37,11 +44,6 @@ class SignUp extends Component {
 
     render() {
 
-      // if (this.state.isRegistered) {
-      //   let form = <h1>Sign In</h1>;
-      // } else {
-      //   let form =  <h1>Register</h1>
-      // }
         return <div>
             
             <Form>

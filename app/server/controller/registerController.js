@@ -24,5 +24,29 @@ module.exports = {
                 console.log("Got users");
                 res.json(dbUsers)
             })
+    },
+    getUser: (req, res) => {
+        console.log("GETTTING USER>>>>>>")
+        const { query: params } = req;
+        console.log(params.user);
+        const user = JSON.parse(params.user);
+        console.log(user);
+        // console.log(req.params);
+        // console.log(req.params.email);
+        db.User.findOne({
+            where: {
+                email: user.email
+            }
+        })
+            .then(function(dbUser){
+                // if (dbUser.password != req.password){
+                //     console.log("WRONG PASSWORD");
+                //     res.send("WRONG PASSWORD")
+                // } else {
+                //     res.json(dbUser)
+                // }
+                console.log("USER: ", dbUser)
+                res.json(dbUser)
+            })
     }
 }

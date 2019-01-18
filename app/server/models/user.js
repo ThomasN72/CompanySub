@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       len: [1]
     }, 
     firstName: {
-        type: DataTypes.STRING, 
+        type: DataTypes.STRING,  
         allowNull: false
     },
     lastName: { 
